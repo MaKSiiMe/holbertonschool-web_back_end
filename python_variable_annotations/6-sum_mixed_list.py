@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+takes a list mxd_lst of integers and floats
+returns their sum as a float.
+"""
 
 
 def sum_mixed_list(mxd_lst: int) -> float:
