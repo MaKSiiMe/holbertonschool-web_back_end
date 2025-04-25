@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+4. Tasks
+"""
 
 import asyncio
 wait_random = __import__('0-basic_async_syntax').wait_random
