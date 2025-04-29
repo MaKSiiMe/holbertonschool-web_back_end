@@ -38,8 +38,8 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """Get a page of the dataset
         """
-        assert type(page) == int and page > 0
-        assert type(page_size) == int and page_size > 0
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
         start, end = index_range(page, page_size)
         dataset = self.dataset()
@@ -52,8 +52,8 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """Get a page of the dataset with hypermedia pagination
         """
-        assert type(page) == int and page > 0
-        assert type(page_size) == int and page_size > 0
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
 
         start, end = index_range(page, page_size)
         dataset = self.dataset()
