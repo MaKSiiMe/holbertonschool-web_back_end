@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+Write a coroutine called async_generator that takes no arguments.
+"""
 import asyncio
 import random
 import typing

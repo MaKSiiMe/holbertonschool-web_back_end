@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+execute async_comprehension four times in parallel using asyncio.gather.
+"""
 import asyncio
 import time
 import typing
