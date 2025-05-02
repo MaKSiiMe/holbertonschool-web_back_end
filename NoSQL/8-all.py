@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+List all documents in Python
+"""
 from pymongo import MongoClient
 
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+Insert a document in Python
+"""
 from pymongo import MongoClient
 
 

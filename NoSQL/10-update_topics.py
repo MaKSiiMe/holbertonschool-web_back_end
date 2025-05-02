@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
+"""
+Change school topics
 
+"""
 from pymongo import MongoClient
 
 
