@@ -14,14 +14,16 @@ function countStudents(path) {
     let total = 0;
 
     for (const student of students) {
-      if (student.trim() === '') continue;
-      const parts = student.split(',');
-      if (parts.length < 4) continue;
-      const firstname = parts[0].trim();
-      const field = parts[3].trim();
-      if (!fields[field]) fields[field] = [];
-      fields[field].push(firstname);
-      total += 1;
+      if (student.trim() !== '') {
+        const parts = student.split(',');
+        if (parts.length >= 4) {
+          const firstname = parts[0].trim();
+          const field = parts[3].trim();
+          if (!fields[field]) fields[field] = [];
+          fields[field].push(firstname);
+          total += 1;
+        }
+      }
     }
 
     console.log(`Number of students: ${total}`);
