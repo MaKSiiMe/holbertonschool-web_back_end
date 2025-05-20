@@ -13,16 +13,19 @@ const app = http.createServer((req, res) => {
     res.write('This is the list of our students\n');
     countStudents(database)
       .then(() => {
+        // eslint-disable-next-line global-require
         const fs = require('fs');
         try {
           const data = fs.readFileSync(database, 'utf8');
-          const lines = data.split('\n').filter(line => line.trim() !== '');
+          const lines = data.split('\n').filter((line) => line.trim() !== '');
           const students = lines.slice(1);
           const fields = {};
           let total = 0;
           for (const student of students) {
+            // eslint-disable-next-line no-continue
             if (student.trim() === '') continue;
             const parts = student.split(',');
+            // eslint-disable-next-line no-continue
             if (parts.length < 4) continue;
             const firstname = parts[0].trim();
             const field = parts[3].trim();
