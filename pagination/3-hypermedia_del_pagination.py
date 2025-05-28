@@ -39,27 +39,30 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None, page_size: int = 0) -> Dict:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """Return a dictionary with pagination information."""
-        assert 0 <= index < len(self.__indexed_dataset), "Index out of range"
+        assert index is not None and 0 <= index < len(self.__indexed_dataset), "Index out of range"
 
         dataset = self.__indexed_dataset
         keys = sorted(dataset.keys())
         data = []
         next_index = index
+        collected = 0
 
-        for _ in range(page_size):
-            while next_index not in dataset:
-                next_index += 1
-            data.append(dataset[next_index])
+        while collected < page_size and next_index <= max(keys):
+            if next_index in dataset:
+                data.append(dataset[next_index])
+                collected += 1
             next_index += 1
 
-        while next_index not in dataset and next_index < max(keys):
+        while next_index not in dataset and next_index <= max(keys):
             next_index += 1
+        if next_index > max(keys):
+            next_index = None
 
         return {
             'index': index,
             'next_index': next_index,
-            'page_size': page_size,
+            'page_size': len(data),
             'data': data
         }
