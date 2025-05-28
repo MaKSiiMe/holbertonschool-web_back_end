@@ -41,7 +41,8 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """Return a dictionary with pagination information."""
-        assert index is not None and 0 <= index < len(self.__indexed_dataset), "Index out of range"
+        assert index is not None and 0 <= index < len(self.__indexed_dataset), \
+            "Index out of range"
 
         dataset = self.__indexed_dataset
         keys = sorted(dataset.keys())
